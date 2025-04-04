@@ -5,7 +5,6 @@ file = "test.mp4"
 target_color = None
 color_tolerance = 20
 
-#Захват мыши
 def pick_color(event, x, y, flags, param):
     global target_color
     if event == cv2.EVENT_LBUTTONDOWN:
@@ -25,12 +24,9 @@ cv2.moveWindow("Frame", 100, 100)
 
 cv2.namedWindow("Mask", cv2.WINDOW_NORMAL)
 cv2.moveWindow("Mask", 100 + 640 + 20, 100)
-
-cv2.namedWindow("Frame")
 cv2.setMouseCallback("Frame", pick_color)
 cv2.createTrackbar("Tolerance", "Frame", color_tolerance, 100, on_trackbar)
 
-#Захват видео
 cap = cv2.VideoCapture(file) 
 #cap = cv2.VideoCapture(0)
 
